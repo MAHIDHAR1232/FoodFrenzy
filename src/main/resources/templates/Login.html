@@ -41,11 +41,20 @@
 					<small style="color: red;" th:text="${error2}"></small><br />
 					<button type="submit" class="loginButton">Log in</button><br>
 
-					<p>I don't have an account? <a href="register.html" style="color: green;">Register Here</a></p>
+					<p>I don't have an account? <a th:href="@{/addUser}" style="color: green;">Register Here</a></p>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
+<!-- Place this right before the closing </body> tag -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var success = [[${registrationSuccess}]];
+    if (success) {
+        alert("Registration Successful!");
+    }
+    /*]]>*/
+</script>
 
 </html>

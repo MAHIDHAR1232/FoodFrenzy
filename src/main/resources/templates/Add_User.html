@@ -3,24 +3,32 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<title>Document</title>
+	<title>Register User</title>
 	<link rel="stylesheet" href="" th:href="@{/css/Add_User.css}" />
 </head>
 
 <body>
-<a href="/admin/services">Back to Services</a>
+    <!-- Rewritten to context-aware path for the back button -->
+    <a href="/login" style="margin: 10px; display: inline-block;">Back to Login</a>
+    
 	<div class="addUser">
-		<h3 style="color: red;">ADD NEW USER/CUSTOMER</h3>
+		<h3 style="color: red; margin-bottom: 15px;">ADD NEW USER/CUSTOMER</h3>
+        
 		<form action="" th:action="@{/addingUser}" method="post">
 			<label for="name">User_Name :</label>
-			<input type="text" name="uname" />
-			<label for="email" />User_Email :
-			<input type="email" name="uemail" />
+			<input type="text" name="uname" placeholder="Enter name..." required /><br/><br/>
+            
+			<label for="email">User_Email :</label>
+			<input type="email" name="uemail" placeholder="Enter email..." required /><br/><br/>
+            
 			<label for="telephone">User_Number :</label>
-			<input type="tel" name="unumber" pattern="[0-9]{10}"/>
+			<input type="tel" name="unumber" placeholder="10-digit phone..." pattern="[0-9]{10}" required /><br/><br/>
+            
 			<input type="hidden" name="upassword" value="2330" />
+            
+            <!-- BUTTON INSIDE THE FORM ACCEPTS ALL INPUT MAPPINGS -->
+            <button type="submit" style="cursor: pointer; padding: 5px 15px;">Add User</button>
 		</form>
-		<button type="submit">Add_User</button>
 	</div>
 </body>
 

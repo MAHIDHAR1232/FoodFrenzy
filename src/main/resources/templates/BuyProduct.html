@@ -93,7 +93,7 @@
 			<smal style="color: red;" th:text="${message}"> </smal>
 		</form>
 		
-		<div th:if="${product!=null}" class="details">
+		<!-- <div th:if="${product!=null}" class="details">
 			<form action="" th:action="@{/product/order}" th:object="${product}" method="post">
 				ProductName :
 				<input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
@@ -101,11 +101,29 @@
 				<input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
 				Quqntity :
 				<input type="number" placeholder="Minimun: 1KG" min="1" name="oQuantity" /><br />
-
+				<button type="submit">Order_Now</button>
+			</form>
+		</div> -->
+		
+		<div th:if="${product!=null}" class="details">
+			<!-- Removed th:object so inputs match the incoming Orders object parameters directly -->
+			<form th:action="@{/product/order}" method="post">
+				ProductName :
+				<input type="text" name="oName" th:value="${product.pname}" readonly /><br />
+				
+				Product Price :
+				<input type="text" name="oPrice" th:value="${product.pprice}" readonly /><br />
+				
+				Quantity :
+				<!-- Added required attribute to prevent empty quantity exceptions -->
+				<!-- <input type="number" placeholder="Minimum: 1KG" min="1" name="oQuantity" required /><br /> -->
+				<input type="number" name="oQuantity" value="1" min="1" required /><br />
+				
 				<button type="submit">Order_Now</button>
 			</form>
 		</div>
-		
+
+
 		<div th:if="${orders!=null}" class="details">
 			<h2>Your Orders :</h2>
 			<table >
