@@ -36,4 +36,8 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 
 # Define the command to run your application when the container starts.
+<<<<<<< HEAD
 ENTRYPOINT ["java", "-jar", "app.jar"]
+=======
+ENTRYPOINT ["java", "-jar", "app.jar"]
+>>>>>>> ae096ac50ff5e2001951d00de22110d2ecd6307f
