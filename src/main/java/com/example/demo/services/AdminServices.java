@@ -14,7 +14,7 @@ public class AdminServices
 	@Autowired
 	private AdminRepository adminRepository;
 	
-
+ 
 	public List<Admin>getAll()
 	{
 		 List<Admin> admins = (List<Admin>)this.adminRepository.findAll();
@@ -27,7 +27,7 @@ public class AdminServices
 		Admin admin=optional.get();
 		return admin;
 	}
-
+	
 	public void update(Admin admin ,int id)
 	{
 		for (Admin ad : getAll()) 
